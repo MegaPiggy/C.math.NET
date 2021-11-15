@@ -1777,5 +1777,13 @@ namespace UnitTests.C
             Assert.IsTrue(math.isunordered(-System.Single.NaN, -System.Single.NaN));
         }
 
+
+        [TestMethod]
+        public void cbrt()
+        {
+            Assert.IsTrue(math.cbrt(1000) == 10);
+            Assert.IsTrue(math.cbrt(1000) == math.root(1000, 3));
+            Assert.IsTrue(math.cbrt(8) == 2);
+        }
     }
 }
