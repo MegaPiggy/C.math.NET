@@ -2,10 +2,10 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>C.math.NET</id>
-        <version>1.1</version>
+        <version>1.2</version>
         <title>C math (in .NET)</title>
-        <authors>Robert Baron (Machine Cognitis)</authors>
-        <owners>Robert Baron (Machine Cognitis)</owners>
+        <authors>Robert Baron (Machine Cognitis), Noah Pilarski (MegaPiggy)</authors>
+        <owners>Robert Baron (Machine Cognitis), Noah Pilarski (MegaPiggy)</owners>
         <licenseUrl>https://github.com/MachineCognitis/C.math.NET/blob/master/LICENSE.md</licenseUrl>
         <projectUrl>https://github.com/MachineCognitis/C.math.NET/</projectUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -17,7 +17,7 @@ Supported Platform: .NET Framework 2.0+</description>
         <summary>C math (in .NET)</summary>
         <releaseNotes>Initial release.</releaseNotes>
         <copyright>Copyright (c) 2016 Robert Baron, Machine Cognitis</copyright>
-        <tags>fpclassify isfinite isinf isnan isnormal signbit frexp ilogb ldexp logb scalbn scalbln copysign nextafter nexttoward significand isunordered</tags>
+        <tags>fpclassify isfinite isinf isnan isnormal signbit frexp ilogb ldexp logb scalbn scalbln copysign nextafter nexttoward significand isunordered cbrt root erf erfc approximately eps fuzzyEq fuzzyNe fuzzyGe fuzzyGt fuzzyLe fuzzyLt rad radians deg degrees hypot hypotenuse ult rep repeat</tags>
         <frameworkAssemblies>
             <frameworkAssembly assemblyName="System" targetFramework=".NETFramework2.0" />
         </frameworkAssemblies>

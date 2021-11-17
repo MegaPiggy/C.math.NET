@@ -566,11 +566,11 @@ namespace C
 		/// <para>
 		/// </para>
 		/// <para>
-		/// The function <see cref="math.frexp(double, ref int)"/>, together with its dual, <see cref="math.ldexp(double, int)"/>,
+		/// The function <see cref="math.frexp(double, out int)"/>, together with its dual, <see cref="math.ldexp(double, int)"/>,
 		/// can be used to manipulate the representation of a floating-point number without direct bit manipulations.
 		/// </para>
 		/// <para>
-		/// The relation of <see cref="math.frexp(double, ref int)"/> to <see cref="math.logb(double)"/> and <see cref="math.scalbn(double, int)"/> is:
+		/// The relation of <see cref="math.frexp(double, out int)"/> to <see cref="math.logb(double)"/> and <see cref="math.scalbn(double, int)"/> is:
 		/// </para>
 		/// <para>
 		/// <c><paramref name="exponent"/> = (<paramref name="number"/> == 0) ? 0 : (int)(1 + <see cref="math.logb(double)">logb</see>(<paramref name="number"/>))</c><br/>
@@ -608,7 +608,7 @@ namespace C
 		/// Assert.IsTrue(exponent = -1073);
 		/// </code> 
 		/// </example>
-		public static double frexp(double number, ref int exponent)
+		public static double frexp(double number, out int exponent)
 		{
 			long bits = System.BitConverter.DoubleToInt64Bits(number);
 			int exp = (int)((bits & math.DBL_EXP_MASK) >> math.DBL_MANT_BITS);
@@ -651,11 +651,11 @@ namespace C
 		/// <item>If <paramref name="number"/> is NaN, it is returned, and an undefined value is returned in <paramref name="exponent"/>.</item>
 		/// </list>
 		/// <para>
-		/// The function <see cref="math.frexp(float, ref int)"/>, together with its dual, <see cref="math.ldexp(float, int)"/>,
+		/// The function <see cref="math.frexp(float, out int)"/>, together with its dual, <see cref="math.ldexp(float, int)"/>,
 		/// can be used to manipulate the representation of a floating-point number without direct bit manipulations.
 		/// </para>
 		/// <para>
-		/// The relation of <see cref="math.frexp(float, ref int)"/> to <see cref="math.logb(float)"/> and <see cref="math.scalbn(float, int)"/> is:
+		/// The relation of <see cref="math.frexp(float, out int)"/> to <see cref="math.logb(float)"/> and <see cref="math.scalbn(float, int)"/> is:
 		/// </para>
 		/// <para>
 		/// <c><paramref name="exponent"/> = (<paramref name="number"/> == 0) ? 0 : (int)(1 + <see cref="math.logb(float)">logb</see>(<paramref name="number"/>))</c><br/>
@@ -693,7 +693,7 @@ namespace C
 		/// Assert.IsTrue(exponent = -148);
 		/// </code> 
 		/// </example>
-		public static float frexp(float number, ref int exponent)
+		public static float frexp(float number, out int exponent)
 		{
 			int bits = math.SingleToInt32Bits(number);
 			int exp = (int)((bits & math.FLT_EXP_MASK) >> math.FLT_MANT_BITS);
@@ -751,9 +751,9 @@ namespace C
 		/// </para>
 		/// <para>
 		/// The value of the exponent returned by <see cref="math.ilogb(double)"/> is always <c>1</c> less than the exponent retuned by
-		/// <see cref="math.frexp(double, ref int)"/> because of the different normalization requirements:
+		/// <see cref="math.frexp(double, out int)"/> because of the different normalization requirements:
 		/// for <see cref="math.ilogb(double)"/>, the normalized significand is in the interval <c>[1, 2)</c>,
-		/// but for <see cref="math.frexp(double, ref int)"/>, the normalized significand is in the interval <c>[0.5, 1)</c>.
+		/// but for <see cref="math.frexp(double, out int)"/>, the normalized significand is in the interval <c>[0.5, 1)</c>.
 		/// </para>
 		/// <para>
 		/// See <a href="http://en.cppreference.com/w/c/numeric/math/ilogb">ilogb</a> in the C standard documentation.
@@ -853,9 +853,9 @@ namespace C
 		/// </para>
 		/// <para>
 		/// The value of the exponent returned by <see cref="math.ilogb(float)"/> is always <c>1</c> less than the exponent retuned by
-		/// <see cref="math.frexp(float, ref int)"/> because of the different normalization requirements:
+		/// <see cref="math.frexp(float, out int)"/> because of the different normalization requirements:
 		/// for <see cref="math.ilogb(float)"/>, the normalized significand is in the interval <c>[1, 2)</c>,
-		/// but for <see cref="math.frexp(float, ref int)"/>, the normalized significand is in the interval <c>[0.5, 1)</c>.
+		/// but for <see cref="math.frexp(float, out int)"/>, the normalized significand is in the interval <c>[0.5, 1)</c>.
 		/// </para>
 		/// <para>
 		/// See <a href="http://en.cppreference.com/w/c/numeric/math/ilogb">ilogb</a> in the C standard documentation.
@@ -949,7 +949,7 @@ namespace C
 		/// <item>If <paramref name="number"/> is NaN, <see cref="System.Double.NaN"/> is returned.</item>
 		/// </list>
 		/// <para>
-		/// The function <see cref="math.ldexp(double, int)"/> ("load exponent"), together with its dual, <see cref="math.frexp(double, ref int)"/>,
+		/// The function <see cref="math.ldexp(double, int)"/> ("load exponent"), together with its dual, <see cref="math.frexp(double, out int)"/>,
 		/// can be used to manipulate the representation of a floating-point number without direct bit manipulations.
 		/// </para>
 		/// <para>
@@ -1017,7 +1017,7 @@ namespace C
 		/// <item>If <paramref name="number"/> is NaN, <see cref="System.Single.NaN"/> is returned.</item>
 		/// </list>
 		/// <para>
-		/// The function <see cref="math.ldexp(float, int)"/> ("load exponent"), together with its dual, <see cref="math.frexp(float, ref int)"/>,
+		/// The function <see cref="math.ldexp(float, int)"/> ("load exponent"), together with its dual, <see cref="math.frexp(float, out int)"/>,
 		/// can be used to manipulate the representation of a floating-point number without direct bit manipulations.
 		/// </para>
 		/// <para>
@@ -1099,9 +1099,9 @@ namespace C
 		/// </para>
 		/// <para>
 		/// The value of the exponent returned by <see cref="math.logb(double)"/> is always <c>1</c> less than the exponent retuned by
-		/// <see cref="math.frexp(double, ref int)"/> because of the different normalization requirements:
+		/// <see cref="math.frexp(double, out int)"/> because of the different normalization requirements:
 		/// for <see cref="math.logb(double)"/>, the normalized significand is in the interval <c>[1, 2)</c>,
-		/// but for <see cref="math.frexp(double, ref int)"/>, the normalized significand is in the interval <c>[0.5, 1)</c>. 
+		/// but for <see cref="math.frexp(double, out int)"/>, the normalized significand is in the interval <c>[0.5, 1)</c>. 
 		/// </para>
 		/// <para>
 		/// See <a href="http://en.cppreference.com/w/c/numeric/math/logb">logb</a> in the C standard documentation.
@@ -1203,9 +1203,9 @@ namespace C
 		/// </para>
 		/// <para>
 		/// The value of the exponent returned by <see cref="math.logb(float)"/> is always <c>1</c> less than the exponent retuned by
-		/// <see cref="math.frexp(float, ref int)"/> because of the different normalization requirements:
+		/// <see cref="math.frexp(float, out int)"/> because of the different normalization requirements:
 		/// for <see cref="math.logb(float)"/>, the normalized significand is in the interval <c>[1, 2)</c>,
-		/// but for <see cref="math.frexp(float, ref int)"/>, the normalized significand is in the interval <c>[0.5, 1)</c>. 
+		/// but for <see cref="math.frexp(float, out int)"/>, the normalized significand is in the interval <c>[0.5, 1)</c>. 
 		/// </para>
 		/// <para>
 		/// See <a href="http://en.cppreference.com/w/c/numeric/math/logb">logb</a> in the C standard documentation.
@@ -2115,7 +2115,7 @@ namespace C
 				{
 					mantissa <<= 1;
 				}
-				mantissa = mantissa & math.DBL_MANT_MASK;
+				mantissa &= math.DBL_MANT_MASK;
 			}
 			// Build new double with exponent 0 and the normalized mantissa.
 			return System.BitConverter.Int64BitsToDouble((System.Convert.ToInt64(math.DBL_EXP_BIAS) << math.DBL_MANT_BITS) | mantissa | (math.signbit(number) == 1 ? math.DBL_SGN_MASK : 0L));
@@ -2175,7 +2175,7 @@ namespace C
 				{
 					mantissa <<= 1;
 				}
-				mantissa = mantissa & math.FLT_MANT_MASK;
+				mantissa &= math.FLT_MANT_MASK;
 			}
 			// Build new float with exponent 0 and the normalized mantissa.
 			return math.Int32BitsToSingle((System.Convert.ToInt32(math.FLT_EXP_BIAS) << math.FLT_MANT_BITS) | mantissa | (math.signbit(number) == 1 ? math.FLT_SGN_MASK : 0));
@@ -2251,10 +2251,10 @@ namespace C
 		{
 			int y;
 			int n = 32;
-			y = x >> 16; if (y != 0) { n = n - 16; x = y; }
-			y = x >> 8; if (y != 0) { n = n - 8; x = y; }
-			y = x >> 4; if (y != 0) { n = n - 4; x = y; }
-			y = x >> 2; if (y != 0) { n = n - 2; x = y; }
+			y = x >> 16; if (y != 0) { n -= 16; x = y; }
+			y = x >> 8; if (y != 0) { n -= 8; x = y; }
+			y = x >> 4; if (y != 0) { n -= 4; x = y; }
+			y = x >> 2; if (y != 0) { n -= 2; x = y; }
 			y = x >> 1; if (y != 0) return n - 2;
 			return n - x;
 		}
@@ -2263,11 +2263,11 @@ namespace C
 		{
 			long y;
 			int n = 64;
-			y = x >> 32; if (y != 0) { n = n - 32; x = y; }
-			y = x >> 16; if (y != 0) { n = n - 16; x = y; }
-			y = x >> 8; if (y != 0) { n = n - 8; x = y; }
-			y = x >> 4; if (y != 0) { n = n - 4; x = y; }
-			y = x >> 2; if (y != 0) { n = n - 2; x = y; }
+			y = x >> 32; if (y != 0) { n -= 32; x = y; }
+			y = x >> 16; if (y != 0) { n -= 16; x = y; }
+			y = x >> 8; if (y != 0) { n -= 8; x = y; }
+			y = x >> 4; if (y != 0) { n -= 4; x = y; }
+			y = x >> 2; if (y != 0) { n -= 2; x = y; }
 			y = x >> 1; if (y != 0) return n - 2;
 			return n - (int)x;
 		}
@@ -2530,7 +2530,7 @@ namespace C
 		/// <summary>
 		/// Returns the value of the gaussian error function at <paramref name="x"/>.
 		/// </summary>
-		public static double Erf(double x)
+		public static double erf(double x)
 		{
 			#region Constants
 
@@ -2678,7 +2678,7 @@ namespace C
 		/// <summary>
 		/// Returns the value of the complementary error function at <paramref name="x"/>.
 		/// </summary>
-		public static double Erfc(double x)
+		public static double erfc(double x)
 		{
 			#region Constants
 
@@ -2851,7 +2851,7 @@ namespace C
 			double s;
 
 			if (a < 0 || a >= TWO_PI)
-				a = a - Math.Floor(a / TWO_PI) * TWO_PI;
+				a -= Math.Floor(a / TWO_PI) * TWO_PI;
 
 			if (a < Math.PI)
 			{
@@ -2861,7 +2861,7 @@ namespace C
 			else
 			{
 				if (a > Math.PI + HALF_PI)
-					a = a - TWO_PI;
+					a -= TWO_PI;
 				else
 					a = Math.PI - a;
 			}
@@ -2963,7 +2963,7 @@ namespace C
 		/// <param name="u">starting unit</param>
 		/// <param name="t">converted unit</param>
 		/// <returns>the converted <paramref name="n"/></returns>
-		public static double Convert(double n, Measurement u, out Measurement t)
+		public static double convert(double n, Measurement u, out Measurement t)
 		{
 			switch (u)
 			{

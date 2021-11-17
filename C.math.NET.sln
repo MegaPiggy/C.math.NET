@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{68DC166D-565A-4F3D-B777-B8E384F26864}"
 	ProjectSection(SolutionItems) = preProject
@@ -20,7 +20,7 @@ Project("{7CF6DF6D-3B04-46F8-A40B-537D21BCA0B4}") = "Documentation", "Documentat
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "docs", "docs\docs.shproj", "{39B1E62E-D491-495F-8E90-B7D09B76D8A1}"
 EndProject
-Project("{E09DD79A-4488-4AB9-8D3F-A7EEE78BF432}") = "NuGet", "NuGet\NuGet.nuproj", "{B51A83D0-21F1-454A-A62C-8173DB309348}"
+Project("{FF286327-C783-4F7A-AB73-9BCBAD0D4460}") = "NuGet", "NuGet\NuGet.nuproj", "{B51A83D0-21F1-454A-A62C-8173DB309348}"
 	ProjectSection(ProjectDependencies) = postProject
 		{9C5AABF7-D18F-4AFF-9283-26DC0B4EDF58} = {9C5AABF7-D18F-4AFF-9283-26DC0B4EDF58}
 	EndProjectSection
@@ -110,5 +110,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D1879118-B6CE-4356-8D1E-764D27BF2E19}
 	EndGlobalSection
 EndGlobal

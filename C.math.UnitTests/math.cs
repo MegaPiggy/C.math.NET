@@ -251,100 +251,99 @@ namespace UnitTests.C
         [TestMethod]
         public void frexp()
         {
-            int exponent = 0;
 
-            Assert.IsTrue(math.frexp(System.Double.PositiveInfinity, ref exponent) == System.Double.PositiveInfinity);
-            Assert.IsTrue(math.frexp(System.Double.NegativeInfinity, ref exponent) == System.Double.NegativeInfinity);
-            Assert.IsTrue(System.Double.IsNaN(math.frexp(System.Double.NaN, ref exponent)));
-            Assert.IsTrue(System.Double.IsNaN(math.frexp(-System.Double.NaN, ref exponent)));
+            Assert.IsTrue(math.frexp(System.Double.PositiveInfinity, out int exponent) == System.Double.PositiveInfinity);
+            Assert.IsTrue(math.frexp(System.Double.NegativeInfinity, out exponent) == System.Double.NegativeInfinity);
+            Assert.IsTrue(System.Double.IsNaN(math.frexp(System.Double.NaN, out exponent)));
+            Assert.IsTrue(System.Double.IsNaN(math.frexp(-System.Double.NaN, out exponent)));
 
-            Assert.IsTrue(math.frexp(0D, ref exponent) == 0D);
+            Assert.IsTrue(math.frexp(0D, out exponent) == 0D);
             Assert.IsTrue(exponent == 0);
-            Assert.IsTrue(math.frexp(-0D, ref exponent) == -0D);
-            Assert.IsTrue(math.signbit(math.frexp(-0D, ref exponent)) == 1);
+            Assert.IsTrue(math.frexp(-0D, out exponent) == -0D);
+            Assert.IsTrue(math.signbit(math.frexp(-0D, out exponent)) == 1);
             Assert.IsTrue(exponent == 0);
-            Assert.IsTrue(math.frexp(12.8D, ref exponent) == 0.8D);
+            Assert.IsTrue(math.frexp(12.8D, out exponent) == 0.8D);
             Assert.IsTrue(exponent == 4);
-            Assert.IsTrue(math.frexp(-27.34D, ref exponent) == -0.854375D);
+            Assert.IsTrue(math.frexp(-27.34D, out exponent) == -0.854375D);
             Assert.IsTrue(exponent == 5);
-            Assert.IsTrue(math.frexp(0.25D, ref exponent) == 0.5D);
+            Assert.IsTrue(math.frexp(0.25D, out exponent) == 0.5D);
             Assert.IsTrue(exponent == -1);
-            Assert.IsTrue(math.frexp(0.5D, ref exponent) == 0.5D);
+            Assert.IsTrue(math.frexp(0.5D, out exponent) == 0.5D);
             Assert.IsTrue(exponent == 0);
-            Assert.IsTrue(math.frexp(1D, ref exponent) == 0.5D);
+            Assert.IsTrue(math.frexp(1D, out exponent) == 0.5D);
             Assert.IsTrue(exponent == 1);
-            Assert.IsTrue(math.frexp(-1D, ref exponent) == -0.5D);
+            Assert.IsTrue(math.frexp(-1D, out exponent) == -0.5D);
             Assert.IsTrue(exponent == 1);
-            Assert.IsTrue(math.frexp(2D, ref exponent) == 0.5D);
+            Assert.IsTrue(math.frexp(2D, out exponent) == 0.5D);
             Assert.IsTrue(exponent == 2);
-            Assert.IsTrue(math.frexp(4D, ref exponent) == 0.5D);
+            Assert.IsTrue(math.frexp(4D, out exponent) == 0.5D);
             Assert.IsTrue(exponent == 3);
 
-            Assert.IsTrue(math.frexp(System.Math.Pow(2D, 127D), ref exponent) == 0.5D);
+            Assert.IsTrue(math.frexp(System.Math.Pow(2D, 127D), out exponent) == 0.5D);
             Assert.IsTrue(exponent == 128);
-            Assert.IsTrue(math.frexp(-System.Math.Pow(2D, 127D), ref exponent) == -0.5D);
+            Assert.IsTrue(math.frexp(-System.Math.Pow(2D, 127D), out exponent) == -0.5D);
             Assert.IsTrue(exponent == 128);
-            Assert.IsTrue(math.frexp(System.Math.Pow(2D, -126D), ref exponent) == 0.5D);
+            Assert.IsTrue(math.frexp(System.Math.Pow(2D, -126D), out exponent) == 0.5D);
             Assert.IsTrue(exponent == -125);
-            Assert.IsTrue(math.frexp(System.Math.Pow(2D, -127D), ref exponent) == 0.5D);
+            Assert.IsTrue(math.frexp(System.Math.Pow(2D, -127D), out exponent) == 0.5D);
             Assert.IsTrue(exponent == -126);
-            Assert.IsTrue(math.frexp(System.Math.Pow(2D, -149D), ref exponent) == 0.5D);
+            Assert.IsTrue(math.frexp(System.Math.Pow(2D, -149D), out exponent) == 0.5D);
             Assert.IsTrue(exponent == -148);
-            Assert.IsTrue(math.frexp(-System.Math.Pow(2D, -149D), ref exponent) == -0.5D);
+            Assert.IsTrue(math.frexp(-System.Math.Pow(2D, -149D), out exponent) == -0.5D);
             Assert.IsTrue(exponent == -148);
 
-            Assert.IsTrue(math.frexp(System.Math.Pow(2D, 1023), ref exponent) == 0.5D);
+            Assert.IsTrue(math.frexp(System.Math.Pow(2D, 1023), out exponent) == 0.5D);
             Assert.IsTrue(exponent == 1024);
-            Assert.IsTrue(math.frexp(-System.Math.Pow(2D, 1023), ref exponent) == -0.5D);
+            Assert.IsTrue(math.frexp(-System.Math.Pow(2D, 1023), out exponent) == -0.5D);
             Assert.IsTrue(exponent == 1024);
-            Assert.IsTrue(math.frexp(System.Math.Pow(2D, -1022), ref exponent) == 0.5D);
+            Assert.IsTrue(math.frexp(System.Math.Pow(2D, -1022), out exponent) == 0.5D);
             Assert.IsTrue(exponent == -1021);
-            Assert.IsTrue(math.frexp(System.Math.Pow(2D, -1023), ref exponent) == 0.5D);
+            Assert.IsTrue(math.frexp(System.Math.Pow(2D, -1023), out exponent) == 0.5D);
             Assert.IsTrue(exponent == -1022);
-            Assert.IsTrue(math.frexp(System.Math.Pow(2D, -1074), ref exponent) == 0.5D);
+            Assert.IsTrue(math.frexp(System.Math.Pow(2D, -1074), out exponent) == 0.5D);
             Assert.IsTrue(exponent == -1073);
-            Assert.IsTrue(math.frexp(-System.Math.Pow(2D, -1074), ref exponent) == -0.5D);
+            Assert.IsTrue(math.frexp(-System.Math.Pow(2D, -1074), out exponent) == -0.5D);
             Assert.IsTrue(exponent == -1073);
 
 
-            Assert.IsTrue(math.frexp(System.Single.PositiveInfinity, ref exponent) == System.Single.PositiveInfinity);
-            Assert.IsTrue(math.frexp(System.Single.NegativeInfinity, ref exponent) == System.Single.NegativeInfinity);
-            Assert.IsTrue(System.Double.IsNaN(math.frexp(System.Single.NaN, ref exponent)));
-            Assert.IsTrue(System.Double.IsNaN(math.frexp(-System.Single.NaN, ref exponent)));
+            Assert.IsTrue(math.frexp(System.Single.PositiveInfinity, out exponent) == System.Single.PositiveInfinity);
+            Assert.IsTrue(math.frexp(System.Single.NegativeInfinity, out exponent) == System.Single.NegativeInfinity);
+            Assert.IsTrue(System.Double.IsNaN(math.frexp(System.Single.NaN, out exponent)));
+            Assert.IsTrue(System.Double.IsNaN(math.frexp(-System.Single.NaN, out exponent)));
 
-            Assert.IsTrue(math.frexp(0F, ref exponent) == 0F);
+            Assert.IsTrue(math.frexp(0F, out exponent) == 0F);
             Assert.IsTrue(exponent == 0);
-            Assert.IsTrue(math.frexp(-0F, ref exponent) == -0F);
-            Assert.IsTrue(math.signbit(math.frexp(-0F, ref exponent)) == 1);
+            Assert.IsTrue(math.frexp(-0F, out exponent) == -0F);
+            Assert.IsTrue(math.signbit(math.frexp(-0F, out exponent)) == 1);
             Assert.IsTrue(exponent == 0);
-            Assert.IsTrue(math.frexp(12.8F, ref exponent) == 0.8F);
+            Assert.IsTrue(math.frexp(12.8F, out exponent) == 0.8F);
             Assert.IsTrue(exponent == 4);
-            Assert.IsTrue(math.frexp(-27.34F, ref exponent) == -0.854375F);
+            Assert.IsTrue(math.frexp(-27.34F, out exponent) == -0.854375F);
             Assert.IsTrue(exponent == 5);
-            Assert.IsTrue(math.frexp(0.25F, ref exponent) == 0.5F);
+            Assert.IsTrue(math.frexp(0.25F, out exponent) == 0.5F);
             Assert.IsTrue(exponent == -1);
-            Assert.IsTrue(math.frexp(0.5F, ref exponent) == 0.5F);
+            Assert.IsTrue(math.frexp(0.5F, out exponent) == 0.5F);
             Assert.IsTrue(exponent == 0);
-            Assert.IsTrue(math.frexp(1F, ref exponent) == 0.5F);
+            Assert.IsTrue(math.frexp(1F, out exponent) == 0.5F);
             Assert.IsTrue(exponent == 1);
-            Assert.IsTrue(math.frexp(-1F, ref exponent) == -0.5F);
+            Assert.IsTrue(math.frexp(-1F, out exponent) == -0.5F);
             Assert.IsTrue(exponent == 1);
-            Assert.IsTrue(math.frexp(2F, ref exponent) == 0.5F);
+            Assert.IsTrue(math.frexp(2F, out exponent) == 0.5F);
             Assert.IsTrue(exponent == 2);
-            Assert.IsTrue(math.frexp(4F, ref exponent) == 0.5F);
+            Assert.IsTrue(math.frexp(4F, out exponent) == 0.5F);
             Assert.IsTrue(exponent == 3);
 
-            Assert.IsTrue(math.frexp(System.Math.Pow(2F, 127F), ref exponent) == 0.5F);
+            Assert.IsTrue(math.frexp(System.Math.Pow(2F, 127F), out exponent) == 0.5F);
             Assert.IsTrue(exponent == 128);
-            Assert.IsTrue(math.frexp(-System.Math.Pow(2F, 127F), ref exponent) == -0.5F);
+            Assert.IsTrue(math.frexp(-System.Math.Pow(2F, 127F), out exponent) == -0.5F);
             Assert.IsTrue(exponent == 128);
-            Assert.IsTrue(math.frexp(System.Math.Pow(2F, -126F), ref exponent) == 0.5F);
+            Assert.IsTrue(math.frexp(System.Math.Pow(2F, -126F), out exponent) == 0.5F);
             Assert.IsTrue(exponent == -125);
-            Assert.IsTrue(math.frexp(System.Math.Pow(2F, -127F), ref exponent) == 0.5F);
+            Assert.IsTrue(math.frexp(System.Math.Pow(2F, -127F), out exponent) == 0.5F);
             Assert.IsTrue(exponent == -126);
-            Assert.IsTrue(math.frexp(System.Math.Pow(2F, -149F), ref exponent) == 0.5F);
+            Assert.IsTrue(math.frexp(System.Math.Pow(2F, -149F), out exponent) == 0.5F);
             Assert.IsTrue(exponent == -148);
-            Assert.IsTrue(math.frexp(-System.Math.Pow(2F, -149F), ref exponent) == -0.5F);
+            Assert.IsTrue(math.frexp(-System.Math.Pow(2F, -149F), out exponent) == -0.5F);
             Assert.IsTrue(exponent == -148);
         }
 

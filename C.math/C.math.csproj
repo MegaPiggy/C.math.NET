@@ -53,7 +53,18 @@
       <Version>4.6.2</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\NuGet\C.math.NET.nuspec">
+      <Link>C.math.NET.nuspec</Link>
+    </None>
+    <None Include="..\NuGet\nupkg.ps1">
+      <Link>nupkg.ps1</Link>
+    </None>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>nuget pack $(SolutionDir)NuGet\C.math.NET.nuspec -Properties Configuration=$(ConfigurationName)</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
