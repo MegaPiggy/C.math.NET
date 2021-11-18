@@ -582,16 +582,16 @@ namespace C
 		/// </remarks>
 		/// <example>
 		/// <code language="C#">
-		/// Assert.IsTrue(math.frexp(12.8D, ref exponent) = 0.8D);
+		/// Assert.IsTrue(math.frexp(12.8D, out exponent) = 0.8D);
 		/// Assert.IsTrue(exponent = 4);
 		/// 
-		/// Assert.IsTrue(math.frexp(0.25D, ref exponent) == 0.5D);
+		/// Assert.IsTrue(math.frexp(0.25D, out exponent) == 0.5D);
 		/// Assert.IsTrue(exponent == -1);
 		/// 
-		/// Assert.IsTrue(math.frexp(System.Math.Pow(2D, 1023), ref exponent) == 0.5D);
+		/// Assert.IsTrue(math.frexp(System.Math.Pow(2D, 1023), out exponent) == 0.5D);
 		/// Assert.IsTrue(exponent == 1024);
 		/// 
-		/// Assert.IsTrue(math.frexp(-System.Math.Pow(2D, -1074), ref exponent) == -0.5D);
+		/// Assert.IsTrue(math.frexp(-System.Math.Pow(2D, -1074), out exponent) == -0.5D);
 		/// Assert.IsTrue(exponent == -1073);
 		/// </code> 
 		/// <code language="VB.NET">
@@ -667,16 +667,16 @@ namespace C
 		/// </remarks>
 		/// <example>
 		/// <code language="C#">
-		/// Assert.IsTrue(math.frexp(12.8F, ref exponent) = 0.8F);
+		/// Assert.IsTrue(math.frexp(12.8F, out exponent) = 0.8F);
 		/// Assert.IsTrue(exponent = 4);
 		/// 
-		/// Assert.IsTrue(math.frexp(0.25F, ref exponent) == 0.5F);
+		/// Assert.IsTrue(math.frexp(0.25F, out exponent) == 0.5F);
 		/// Assert.IsTrue(exponent == -1);
 		/// 
-		/// Assert.IsTrue(math.frexp(System.Math.Pow(2F, 127F), ref exponent) == 0.5F);
+		/// Assert.IsTrue(math.frexp(System.Math.Pow(2F, 127F), out exponent) == 0.5F);
 		/// Assert.IsTrue(exponent == 128);
 		/// 
-		/// Assert.IsTrue(math.frexp(-System.Math.Pow(2F, -149F), ref exponent) == -0.5F);
+		/// Assert.IsTrue(math.frexp(-System.Math.Pow(2F, -149F), out exponent) == -0.5F);
 		/// Assert.IsTrue(exponent == -148);
 		/// </code> 
 		/// <code language="VB.NET">
